@@ -136,6 +136,13 @@ enum GameStateControl {
 	kFreescapeGameStateRestart,
 };
 
+enum CGAPaletteType {
+    kCGAPaletteTypePinkBlue,
+    kCGAPaletteTypeRedGreen,
+    kCGAPaletteTypePinkBlueBright,
+    kCGAPaletteTypeRedGreenBright
+};
+
 struct CGAPaletteEntry {
 	int areaId;
 	byte *palette;
@@ -276,6 +283,9 @@ public:
 	byte *loadPalette(Common::SeekableReadStream *file);
 	void swapPalette(uint16 areaID);
 	virtual byte *findCGAPalette(uint16 levelID);
+	const byte* getCGAPalette(CGAPaletteType type) const;
+	const byte* getEGAPalette() const;
+	const byte* getHerculesPalette() const;
 	Common::HashMap<uint16, byte *> _paletteByArea;
 	void loadColorPalette();
 

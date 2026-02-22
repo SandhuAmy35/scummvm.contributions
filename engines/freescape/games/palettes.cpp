@@ -288,4 +288,27 @@ byte *FreescapeEngine::findCGAPalette(uint16 levelID) {
 	return (byte *)&kCGAPaletteRedGreenBright;
 }
 
+const byte* FreescapeEngine::getEGAPalette() const {
+    return (const byte*)&kEGADefaultPalette;
+}
+
+const byte* FreescapeEngine::getHerculesPalette() const {
+    return (const byte*)&kHerculesPaletteGreen;
+}
+
+const byte* FreescapeEngine::getCGAPalette(CGAPaletteType type) const {
+    switch (type) {
+        case kCGAPaletteTypePinkBlue:
+            return (const byte*)&kCGAPalettePinkBlue;
+        case kCGAPaletteTypeRedGreen:
+            return (const byte*)&kCGAPaletteRedGreen;
+        case kCGAPaletteTypePinkBlueBright:
+            return (const byte*)&kCGAPalettePinkBlueBright;
+        case kCGAPaletteTypeRedGreenBright:
+            return (const byte*)&kCGAPaletteRedGreenBright;
+        default:
+            return nullptr;
+    }
+}
+
 } // End of namespace Freescape
